@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="WorldQuest" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/WorldQuest" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="D:/Program Files (x86)/NVIDIA Corporation/Cg/bin" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/WorldQuest" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="D:/Program Files (x86)/NVIDIA Corporation/Cg/bin" />
+				<Option object_output="obj/Release/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+			<Target title="WorldQuestServer">
+				<Option output="bin/WorldQuestServer/WorldQuest" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin/WorldQuestServer/" />
+				<Option object_output="obj/WorldQuestServer/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add directory="D:/Program Files (x86)/NVIDIA Corporation/Cg/include" />
+			<Add directory="./" />
+		</Compiler>
+		<Linker>
+			<Add library="glut32" />
+			<Add library="opengl32" />
+			<Add library="glu32" />
+			<Add library="winmm" />
+			<Add library="gdi32" />
+			<Add library="ws2_32" />
+			<Add directory="D:/Program Files (x86)/NVIDIA Corporation/Cg/lib" />
+		</Linker>
+		<Unit filename="Client/WorldQuest.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="Client/engine.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="Client/engine.hpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="Client/gfx.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="Client/gfx.hpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="Client/gl_vars.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="Client/gl_vars.hpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="Client/input.cpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="Client/input.hpp">
+			<Option target="Debug" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="Common/chunk.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Common/chunk.h" />
+		<Unit filename="Common/logging.cpp">
+			<Option compilerVar="CC" />
+			<Option weight="79" />
+		</Unit>
+		<Unit filename="Common/logging.h" />
+		<Unit filename="Common/macros.h" />
+		<Unit filename="Common/structures.h" />
+		<Unit filename="Server/main.cpp">
+			<Option target="WorldQuestServer" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
