@@ -106,3 +106,40 @@
 	<stdlib.h>
 	<string.h>
 
+1475542253 source:c:\users\phyrr\desktop\new folder\common\chunk.c
+	"structures.h"
+	<stdlib.h>
+
+1475542337 c:\users\phyrr\desktop\new folder\common\structures.h
+	<stdbool.h>
+
+1475968673 source:c:\users\phyrr\desktop\new folder\common\sockets.cpp
+	<windows.h>
+	<winsock2.h>
+	"sockets.hpp"
+
+1475968786 c:\users\phyrr\desktop\new folder\common\sockets.hpp
+	<stdlib.h>
+
+1475968812 source:c:\users\phyrr\desktop\new folder\server\main.cpp
+	"../Common/structures.h"
+	"../Common/chunk.h"
+	"../Common/logging.h"
+	"../Common/sockets.hpp"
+	<windows.h>
+	<vector>
+	<pthread.h>
+	<string.h>
+
+1475542535 c:\users\phyrr\desktop\new folder\common\chunk.h
+	"structures.h"
+
+1475813845 c:\users\phyrr\desktop\new folder\common\logging.h
+
+1475816021 source:c:\users\phyrr\desktop\new folder\common\logging.cpp
+	"logging.h"
+	<stdio.h>
+	<stdarg.h>
+	<stdlib.h>
+	<string.h>
+

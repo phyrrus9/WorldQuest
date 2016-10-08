@@ -100,6 +100,10 @@
 		</Unit>
 		<Unit filename="Common/logging.h" />
 		<Unit filename="Common/macros.h" />
+		<Unit filename="Common/sockets.cpp">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Common/sockets.hpp" />
 		<Unit filename="Common/structures.h" />
 		<Unit filename="Server/main.cpp">
 			<Option target="WorldQuestServer" />
