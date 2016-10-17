@@ -28,7 +28,13 @@ struct __chunk_s
 	//blocks always go to (startx + CHUNKXZ), (starty + CHUNKY), (startz + CHUNKXZ)
 };
 
+struct __imgpixel_s
+{
+	unsigned char r, g, b, a;
+};
+
 typedef struct __block_s block_t;
 typedef struct __chunk_s chunk_t;
+typedef struct __imgpixel_s imgpixel_t;
 
 #endif

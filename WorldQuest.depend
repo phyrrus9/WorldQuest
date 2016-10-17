@@ -110,7 +110,7 @@
 	"structures.h"
 	<stdlib.h>
 
-1475542337 c:\users\phyrr\desktop\new folder\common\structures.h
+1476742487 c:\users\phyrr\desktop\new folder\common\structures.h
 	<stdbool.h>
 
 1475968673 source:c:\users\phyrr\desktop\new folder\common\sockets.cpp
@@ -142,4 +142,47 @@
 	<stdarg.h>
 	<stdlib.h>
 	<string.h>
+
+1475491170 source:c:\users\phyrr\desktop\new folder\client\engine.cpp
+	"engine.hpp"
+	"../Common/structures.h"
+	"../Common/macros.h"
+	"gl_vars.hpp"
+	<GLUT/glut.h>
+	<GL/glut.h>
+	<math.h>
+
+1475491163 c:\users\phyrr\desktop\new folder\client\engine.hpp
+
+1475489328 c:\users\phyrr\desktop\new folder\common\macros.h
+
+1475490391 c:\users\phyrr\desktop\new folder\client\gl_vars.hpp
+	"../Common/structures.h"
+	<vector>
+
+1475490306 source:c:\users\phyrr\desktop\new folder\client\gl_vars.cpp
+	"gl_vars.hpp"
+
+1475540151 source:c:\users\phyrr\desktop\new folder\client\input.cpp
+	"input.hpp"
+	"gl_vars.hpp"
+	"engine.hpp"
+	"gfx.hpp"
+	<GLUT/glut.h>
+	<GL/glut.h>
+	<math.h>
+	<stdlib.h>
+	<stdio.h>
+
+1475491312 c:\users\phyrr\desktop\new folder\client\input.hpp
+
+1475490230 c:\users\phyrr\desktop\new folder\client\gfx.hpp
+
+1475491668 source:c:\users\phyrr\desktop\new folder\client\worldquest.cpp
+	<GLUT/glut.h>
+	<GL/glut.h>
+	"gl_vars.hpp"
+	"gfx.hpp"
+	"engine.hpp"
+	"input.hpp"
 

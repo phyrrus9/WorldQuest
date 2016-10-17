@@ -95,6 +95,71 @@ void firebullet()
 	btravel = 0;
 }
 
+GLuint loadTexture(const char *bmpname)
+{
+}
+
+GLuint loadTexture(imgpixel_t * * img, GLsizei width, GLsizei height)
+{
+	GLubyte *texData = new GLubyte[width * height * 4];
+	GLsizei i, j, k;
+	GLuint texid;
+	for (i = 0, k = 0; i < height; i++)
+	{
+		for(j = 0; j < width; j++)
+		{
+			texData[k++] = img[i][j].r;
+			texData[k++] = img[i][j].g;
+			texData[k++] = img[i][j].b;
+			texData[k++] = img[i][j].a;
+		}
+	}
+	glEnable(GL_TEXTURE_2D);
+	glGenTextures(1, &texid);
+	glBindTexture(GL_TEXTURE_2D,texid);
+	glTexImage2D(GL_TEXTURE_2D, 0, 4, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, texData);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	return texid;
+}
+
+void texturedCube(GLdouble csize, GLuint texid)
+{
+	glBindTexture(GL_TEXTURE_2D, texid);
+	glBegin(GL_QUADS);				// start drawing the cube.
+	// Front Face
+	glTexCoord2f(0.0f, 0.0f); glVertex3f(-csize, -csize,  csize);	// Bottom Left Of The Texture and Quad
+	glTexCoord2f(csize, 0.0f); glVertex3f( csize, -csize,  csize);	// Bottom Right Of The Texture and Quad
+	glTexCoord2f(csize, csize); glVertex3f( csize,  csize,  csize);	// Top Right Of The Texture and Quad
+	glTexCoord2f(0.0f, csize); glVertex3f(-csize,  csize,  csize);	// Top Left Of The Texture and Quad
+	// Back Face
+	glTexCoord2f(csize, 0.0f); glVertex3f(-csize, -csize, -csize);	// Bottom Right Of The Texture and Quad
+	glTexCoord2f(csize, csize); glVertex3f(-csize,  csize, -csize);	// Top Right Of The Texture and Quad
+	glTexCoord2f(0.0f, csize); glVertex3f( csize,  csize, -csize);	// Top Left Of The Texture and Quad
+	glTexCoord2f(0.0f, 0.0f); glVertex3f( csize, -csize, -csize);	// Bottom Left Of The Texture and Quad
+	// Top Face
+	glTexCoord2f(0.0f, csize); glVertex3f(-csize,  csize, -csize);	// Top Left Of The Texture and Quad
+	glTexCoord2f(0.0f, 0.0f); glVertex3f(-csize,  csize,  csize);	// Bottom Left Of The Texture and Quad
+	glTexCoord2f(csize, 0.0f); glVertex3f( csize,  csize,  csize);	// Bottom Right Of The Texture and Quad
+	glTexCoord2f(csize, csize); glVertex3f( csize,  csize, -csize);	// Top Right Of The Texture and Quad
+	// Bottom Face
+	glTexCoord2f(csize, csize); glVertex3f(-csize, -csize, -csize);	// Top Right Of The Texture and Quad
+	glTexCoord2f(0.0f, csize); glVertex3f( csize, -csize, -csize);	// Top Left Of The Texture and Quad
+	glTexCoord2f(0.0f, 0.0f); glVertex3f( csize, -csize,  csize);	// Bottom Left Of The Texture and Quad
+	glTexCoord2f(csize, 0.0f); glVertex3f(-csize, -csize,  csize);	// Bottom Right Of The Texture and Quad
+	// Right face
+	glTexCoord2f(csize, 0.0f); glVertex3f( csize, -csize, -csize);	// Bottom Right Of The Texture and Quad
+	glTexCoord2f(csize, csize); glVertex3f( csize,  csize, -csize);	// Top Right Of The Texture and Quad
+	glTexCoord2f(0.0f, csize); glVertex3f( csize,  csize,  csize);	// Top Left Of The Texture and Quad
+	glTexCoord2f(0.0f, 0.0f); glVertex3f( csize, -csize,  csize);	// Bottom Left Of The Texture and Quad
+	// Left Face
+	glTexCoord2f(0.0f, 0.0f); glVertex3f(-csize, -csize, -csize);	// Bottom Left Of The Texture and Quad
+	glTexCoord2f(csize, 0.0f); glVertex3f(-csize, -csize,  csize);	// Bottom Right Of The Texture and Quad
+	glTexCoord2f(csize, csize); glVertex3f(-csize,  csize,  csize);	// Top Right Of The Texture and Quad
+	glTexCoord2f(0.0f, csize); glVertex3f(-csize,  csize, -csize);	// Top Left Of The Texture and Quad
+	glEnd();
+}
+
 void renderScene(void)
 {
 	char textbuf[1024];
