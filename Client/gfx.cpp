@@ -160,6 +160,7 @@ void texturedCube(GLdouble csize, GLuint texid)
 	glEnd();
 }
 
+struct vector3d lookingAt(bool _colliding);
 void renderScene(void)
 {
 	char textbuf[1024];
@@ -180,7 +181,14 @@ void renderScene(void)
 		glVertex3f( 100.0f, -1.0f, -100.0f);
 	glEnd();
 	// Draw scene
-	for (unsigned int i = 0; i < boxes.size(); i++)
+	for (unsigned int i = 0; i < nonparticles->size(); ++i)
+    {
+        gameObjectBase *obj = nonparticles->at(i);
+        glPushMatrix();
+        obj->mfnc_load();
+        glPopMatrix();
+    }
+	/*for (unsigned int i = 0; i < boxes.size(); i++)
 	{
 		struct vector3d box = boxes.at(i);
 		glPushMatrix();
@@ -190,7 +198,7 @@ void renderScene(void)
 		glColor3f(0.5f, 0.1f, 0.4f);
 		glutSolidCube(0.99);
 		glPopMatrix();
-	}
+	}*/
 	renderbullet();
 	// Draw crosshair
 	lat = lookingAt(destroyTool);
@@ -201,7 +209,7 @@ void renderScene(void)
 	else
 		glColor3f(1.0f, 0.0f, 0.0f);
 	if (lat.accurate)
-		glutWireCube(0.99);
+		glutWireCube(0.4);
 	glPopMatrix();
 	//draw text
 	setOrthographicProjection();
@@ -209,6 +217,11 @@ void renderScene(void)
 	glLoadIdentity();
 	sprintf(textbuf, "X: %.3f     Y: %.3f     Z: %.3f       T: %.3f     P: %.3f", x, y, z, anglexy, anglev);
 	renderBitmapString(5, 30, 0, GLUT_BITMAP_HELVETICA_12, textbuf);
+	/* looking at */
+	struct vector3d look = lookingAt(destroyTool);
+	sprintf(textbuf, "Looking At X: %.3f     Y: %.3f     Z: %.3f", look.x, look.y, look.z);
+	glColor3f(1.0f, 0.0f, 0.0f);
+	renderBitmapString(5, 60, 0, GLUT_BITMAP_HELVETICA_12, textbuf);
 	glPopMatrix();
 	restorePerspectiveProjection();
 	glutSwapBuffers();

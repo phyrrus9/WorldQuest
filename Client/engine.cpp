@@ -11,14 +11,35 @@
 #endif
 
 #include <math.h>
+#include <time.h>
+#include <pthread.h>
+#include <stdio.h>
 
 struct vector3d lookingAt(bool _colliding = false);
 
+/* gravity vars */
+clock_t lastGrav = 0;
+float vg=0.0f; // velocity gravity
 void gravity(void)
 {
-	float ty = y - 0.205;
-	if ((gravaccel = moveTo(x, ty, z)) == false)
-		moveTo(x, (int)y + 0.1f, z);
+    if (lastGrav != 0)
+    {
+        clock_t currentGrav = clock();
+        float t = (double)(currentGrav - lastGrav) / (double)CLOCKS_PER_SEC; // time spent falling between ticks
+        if (t < .01) return;
+        float u = vg;
+        float v = u + (ACCEL * t);
+        v = v > 36 ? 36 : v;
+        vg = v; // save it
+        float d = v * t;
+        float ty = y + (gravfall ? -d : gravjump ? +d : 0);
+        //printf("t=%.3f u=%.3f v=%.3f d=%.3f\n", t, u, v, d);
+        if (ty != y)
+            moveTo(x, ty, z);
+        if (!gravfall && !gravjump)
+            vg = 0.0f;
+    }
+    lastGrav = clock();
 }
 
 bool moveTo(float tx, float ty, float tz)
@@ -33,17 +54,32 @@ bool moveTo(float tx, float ty, float tz)
 	return false;
 }
 
-bool colliding(float x, float y, float z)
+bool colliding(float x, float y, float z, float newosize)
 {
-	RND(x);
-	RND(y);
-	RND(z);
-	for (unsigned int i = 0; i < boxes.size(); i++)
+	//RND(x);
+	//RND(y);
+	//RND(z);
+	for (unsigned int i = 0; i < nonparticles->size(); ++i)
+    {
+        gameObjectBase *obj = nonparticles->at(i);
+        //if (y == 0) return true;
+        vector3d osize = obj->mfnc_restrict_size();
+        if ((x >= *obj->mptr_positionX && (x + osize.x) <= *obj->mptr_positionX) &&
+            (y >= *obj->mptr_positionY && (y + osize.y) <= *obj->mptr_positionY) &&
+            (z >= *obj->mptr_positionZ && (z + osize.z) <= *obj->mptr_positionZ))
+            return true;
+        /* new object check */
+        /*if ((*obj->mptr_positionX >= x && *obj->mptr_positionX <= (x + osize.x)) &&
+            (*obj->mptr_positionX >= y && *obj->mptr_positionX <= (y + osize.y)) &&
+            (*obj->mptr_positionX >= z && *obj->mptr_positionX <= (z + osize.z)))
+            return true;*/
+    }
+	/*for (unsigned int i = 0; i < boxes.size(); i++)
 	{
 		struct vector3d box = boxes.at(i);
 		if (box.x == x && box.y == y && box.z == z)
 			return true;
-	}
+	}*/
 	return false;
 }
 
@@ -67,15 +103,59 @@ struct vector3d lookingAt(bool _colliding)
 		ret.z = tz;
 		dist = sqrt(pow((x - ret.x), 2) + pow((y - ret.y), 2) + pow((z - ret.z), 2));
 	}
-	RND(ret.x);
-	RND(ret.y);
-	RND(ret.z);
+	//RND(ret.x);
+	//RND(ret.y);
+	//RND(ret.z);
 	ret.accurate = dist <= maxdist;
 	return ret;
 }
 
+void processMovement()
+{
+    float fraction = 0.016f;
+	float tx = x, ty = y, tz = z;
+	int numkeys = 0;
+	if (movement.a) numkeys++;
+	if (movement.s) numkeys++;
+	if (movement.d) numkeys++;
+	if (movement.w) numkeys++;
+	fraction /= (float)numkeys;
+    if (movement.a)
+    {
+        tx += cos(anglexy) * fraction;
+        tz += sin(anglexy) * fraction;
+    }
+    if (movement.d)
+    {
+        tx -= cos(anglexy) * fraction;
+        tz -= sin(anglexy) * fraction;
+    }
+    if (movement.w)
+    {
+        tx -= lx * fraction;
+        tz -= lz * fraction;
+    }
+    if (movement.s)
+    {
+        tx += lx * fraction;
+        tz += lz * fraction;
+    }
+    if (movement.jump)
+    {
+        gravjump = true;
+        gravfall = false;
+    }
+    else
+    {
+        gravjump = false;
+        gravfall = true;
+    }
+    moveTo(tx, ty, tz);
+}
+
 void idle(void)
 {
+    processMovement();
 	gravity();
 	glutPostRedisplay();
 }

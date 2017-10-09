@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_workspace_file>
+	<Workspace title="Workspace">
+		<Project filename="WorldQuest.cbp">
+			<Depends filename="WQEngine.cbp" />
+		</Project>
+		<Project filename="WQEngine.cbp" />
+	</Workspace>
+</CodeBlocks_workspace_file>

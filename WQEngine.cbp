@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="WQEngine" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Release">
+				<Option output="bin/WQEngine/WQE" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="bin/WQEngine/" />
+				<Option object_output="obj/WQEngine/" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Option createStaticLib="1" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-Wall" />
+					<Add option="-DBUILD_DLL" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="user32" />
+				</Linker>
+			</Target>
+			<Target title="Debug">
+				<Option output="bin/WQEngine/WQEngine" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="obj/WQEngine/" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Option projectLinkerOptionsRelation="0" />
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add directory="D:/Program Files (x86)/NVIDIA Corporation/Cg/include" />
+			<Add directory="D:/Users/phyrrus9/Documents/Projects/WorldQuest" />
+		</Compiler>
+		<Linker>
+			<Add library="GLUT32" />
+			<Add library="glu32" />
+			<Add library="winmm" />
+			<Add library="gdi32" />
+			<Add library="ws2_32" />
+			<Add directory="D:/Program Files (x86)/NVIDIA Corporation/Cg/lib" />
+			<Add directory="D:/Program Files (x86)/CodeBlocks/MinGW/lib" />
+			<Add directory="libs" />
+		</Linker>
+		<Unit filename="Client/engine.cpp" />
+		<Unit filename="Client/engine.hpp" />
+		<Unit filename="Client/gameObjectBase.cpp" />
+		<Unit filename="Client/gameObjectBase.hpp" />
+		<Unit filename="Client/gfx.cpp" />
+		<Unit filename="Client/gfx.hpp" />
+		<Unit filename="Client/gl_vars.cpp" />
+		<Unit filename="Client/gl_vars.hpp" />
+		<Unit filename="Client/input.cpp" />
+		<Unit filename="Client/input.hpp" />
+		<Unit filename="Common/chunk.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Common/chunk.h" />
+		<Unit filename="Common/logging.cpp">
+			<Option compilerVar="CC" />
+			<Option weight="79" />
+		</Unit>
+		<Unit filename="Common/logging.h" />
+		<Unit filename="Common/macros.h" />
+		<Unit filename="Common/sockets.cpp">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="Common/sockets.hpp" />
+		<Unit filename="Common/structures.h" />
+		<Unit filename="Resources/Objects/permanentBlock.cpp" />
+		<Unit filename="Resources/Objects/permanentBlock.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
