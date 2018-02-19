@@ -1,5 +1,8 @@
 # depslib dependency file v1.0
-1507543614 source:d:\users\phyrrus9\documents\projects\worldquest\client\worldquest.cpp
+1519011291 source:d:\users\phyrrus9\documents\projects\worldquest\client\worldquest.cpp
+	<windows.h>
+	<fcntl.h>
+	<stdio.h>
 	<GLUT/glut.h>
 	<GL/glut.h>
 	"gl_vars.hpp"
@@ -7,30 +10,108 @@
 	"engine.hpp"
 	"input.hpp"
 
-1475490461 d:\program files (x86)\nvidia corporation\cg\include\gl\glut.h
+1475486861 d:\program files (x86)\nvidia corporation\cg\include\gl\glut.h
 	<windows.h>
 	<stddef.h>
 	<GL/gl.h>
 	<GL/glu.h>
 	<sal.h>
 
-1507543327 d:\users\phyrrus9\documents\projects\worldquest\client\gl_vars.hpp
+1519011291 d:\users\phyrrus9\documents\projects\worldquest\client\gl_vars.hpp
 	"../Common/structures.h"
 	"gameObjectBase.hpp"
 	<vector>
 	<list>
 
-1506561267 d:\users\phyrrus9\documents\projects\worldquest\common\structures.h
+1519011291 d:\users\phyrrus9\documents\projects\worldquest\common\structures.h
 	<stdbool.h>
 
-1507545530 d:\users\phyrrus9\documents\projects\worldquest\client\gameobjectbase.hpp
+1519011291 d:\users\phyrrus9\documents\projects\worldquest\client\gameobjectbase.hpp
 	"../Common/structures.h"
 	<vector>
 	<time.h>
 
-1506561267 d:\users\phyrrus9\documents\projects\worldquest\client\gfx.hpp
+1519011291 d:\users\phyrrus9\documents\projects\worldquest\client\gfx.hpp
 
-1507545918 d:\users\phyrrus9\documents\projects\worldquest\client\engine.hpp
+1519011291 d:\users\phyrrus9\documents\projects\worldquest\client\engine.hpp
 
-1506565130 d:\users\phyrrus9\documents\projects\worldquest\client\input.hpp
+1519011291 d:\users\phyrrus9\documents\projects\worldquest\client\input.hpp
+
+1519011291 source:d:\users\phyrrus9\documents\projects\worldquest\client\engine.cpp
+	"engine.hpp"
+	"../Common/structures.h"
+	"../Common/macros.h"
+	"gl_vars.hpp"
+	<GLUT/glut.h>
+	<GL/glut.h>
+	<math.h>
+	<time.h>
+	<pthread.h>
+	<stdio.h>
+
+1519011291 d:\users\phyrrus9\documents\projects\worldquest\common\macros.h
+
+1519011291 source:d:\users\phyrrus9\documents\projects\worldquest\client\gameobjectbase.cpp
+	"gameObjectBase.hpp"
+	"../Client/engine.hpp"
+	<string.h>
+	<stdlib.h>
+	<stdio.h>
+
+1519011291 source:d:\users\phyrrus9\documents\projects\worldquest\client\gfx.cpp
+	"gfx.hpp"
+	"gl_vars.hpp"
+	"../Common/macros.h"
+	"../Common/structures.h"
+	"engine.hpp"
+	<GLUT/glut.h>
+	<GL/glut.h>
+	<math.h>
+	<stdio.h>
+
+1519011291 source:d:\users\phyrrus9\documents\projects\worldquest\client\gl_vars.cpp
+	"gl_vars.hpp"
+
+1519011291 source:d:\users\phyrrus9\documents\projects\worldquest\client\input.cpp
+	<Client/input.hpp>
+	<Client/gl_vars.hpp>
+	<Client/engine.hpp>
+	<Client/gfx.hpp>
+	<GLUT/glut.h>
+	<GL/glut.h>
+	<math.h>
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<Resources/Objects/permanentBlock.h>
+
+1519011291 d:\users\phyrrus9\documents\projects\worldquest\resources\objects\permanentblock.h
+	"../../Client/gameObjectBase.hpp"
+
+1519011291 source:d:\users\phyrrus9\documents\projects\worldquest\common\chunk.c
+	"structures.h"
+	<stdlib.h>
+
+1519011291 source:d:\users\phyrrus9\documents\projects\worldquest\common\logging.cpp
+	"logging.h"
+	<stdio.h>
+	<stdarg.h>
+	<stdlib.h>
+	<string.h>
+
+1519011291 d:\users\phyrrus9\documents\projects\worldquest\common\logging.h
+
+1519011291 source:d:\users\phyrrus9\documents\projects\worldquest\common\sockets.cpp
+	<windows.h>
+	<winsock2.h>
+	"sockets.hpp"
+
+1519011291 d:\users\phyrrus9\documents\projects\worldquest\common\sockets.hpp
+	<stdlib.h>
+
+1519011291 source:d:\users\phyrrus9\documents\projects\worldquest\resources\objects\permanentblock.cpp
+	"permanentBlock.h"
+	<GLUT/glut.h>
+	<GL/glut.h>
+	<stdio.h>
 
